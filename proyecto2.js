@@ -19,3 +19,14 @@ var app = new function() {
       this.Count(this.tasks.length);
       return this.el.innerHTML = data;
     } }
+    this.Add = function () {
+        el = document.getElementById('add-todo');
+        var task = el.value;
+    
+        if (task) {
+          this.tasks.push(task.trim());
+          el.value = '';
+          this.FetchAll();
+        }
+      };
+    
