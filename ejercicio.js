@@ -1,0 +1,1 @@
+document.getElementById("clickModal").addEventListener("click", function())
