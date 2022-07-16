@@ -1,12 +1,13 @@
-var app = new function() {
+//Estoy creando una función que me permita agregar tareas
+let app = new function() {
   this.el = document.getElementById('tasks');
 
   this.tasks = [];
 
-  
+  //quiero agregar botones para editar y borrar la información de tareas ingresadas
   
   this.FetchAll = function() {
-    var data = '';
+    let data = '';
 
     if (this.tasks.length > 0) {
       for (i = 0; i < this.tasks.length; i++) {
@@ -24,15 +25,17 @@ var app = new function() {
 
   this.Add = function () {
     el = document.getElementById('add-todo');
+    //en esta función estoy obteniendo el valor que fue ingresado en la tarea.
     var task = el.value;
 
     if (task) {
       this.tasks.push(task.trim());
+      //Estoy agregando la posibilidad de editar el input agregado
       el.value = '';
       this.FetchAll();
     }
   };
-
+//estoy agregando una funcionalidad que me permita al apretar el botón de aditar, que se traslade la tarea a un cuadro de texto para poder hacerlo.
   this.Edit = function (item) {
     var el = document.getElementById('edit-todo');
     el.value = this.tasks[item];
@@ -49,12 +52,12 @@ var app = new function() {
       }
     }
   };
-
+//Estoy agregando la funcionalidad de borrar tareas que ya no quiero en mi tablero.
   this.Delete = function (item) {
     this.tasks.splice(item, 1);
     this.FetchAll();
   };
-
+//estoy creando un contador de tareas ingresadas para saber cuantas tareas pendientes tengo
   this.Count = function(data) {
     var el   = document.getElementById('counter');
     var name = 'Tasks';
